@@ -1,0 +1,4 @@
+172.24.0.1 - - [06/Aug/2018:12:43:48 +0000] "HEAD / HTTP/1.1" 404 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+172.24.0.1 - - [06/Aug/2018:12:43:55 +0000] "GET / HTTP/1.1" 404 47 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+172.24.0.1 - - [06/Aug/2018:12:43:55 +0000] "GET /favicon.ico HTTP/1.1" 404 47 "http://camp4night.local/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+172.24.0.1 - - [06/Aug/2018:12:48:36 +0000] "GET / HTTP/1.1" 404 2047 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
