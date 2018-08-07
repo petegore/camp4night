@@ -2,24 +2,25 @@
 version: '2'
 
 services:
-    db:
-        image: mysql
+    postgres:
+        image: postgres:9.6
         ports:
-            - 3306:3306
-        volumes:
-            - "./data/mysql:/var/lib/mysql"
+            - ${POSTGRES_PORT}:5432
         environment:
-            MYSQL_ROOT_PASSWORD: root
-        container_name: symfony4-windock-mysql
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
     php:
         build: docker/php7-fpm
+        env_file: ./.env
         ports:
             - 9000:9000
-        links:
-            - db:mysqldb
         volumes:
-            - ".:/var/www/symfony"
-        container_name: symfony4-windock-php
+            - ${SYMFONY_APP_PATH}:/var/www/symfony
+        links:
+            - postgres
+
     nginx:
         build: docker/nginx
         ports:
@@ -31,3 +32,12 @@ services:
         volumes:
             - "./var/log/nginx/:/var/log/nginx"
         container_name: symfony4-windock-nginx
+
+    redis:
+        image: redis:3.2.10
+
+    node:
+        build: docker/node
+        volumes:
+          - ${SYMFONY_APP_PATH}:/var/www/symfony
+        command: bash -c "yarn && yarn dev"
